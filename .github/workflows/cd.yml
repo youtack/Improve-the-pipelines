@@ -124,6 +124,10 @@ jobs:
             exit 1
           }
 
+      - name: Write deploy summary
+        run: |
+          [System.IO.File]::AppendAllText($env:GITHUB_STEP_SUMMARY, "Deployed v${{ github.event.inputs.version }} at $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n")
+
   release:
     needs: deploy
     runs-on: windows-latest
