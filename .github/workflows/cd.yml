@@ -12,11 +12,11 @@ permissions:
   contents: write
 
 env:
-  SITE_PATH: 'C:\inetpub\wwwroot\statusboard-backend'
-  BACKUP_ROOT: 'C:\deployments\backups\statusboard-backend'
-  APP_POOL: 'statusboard-backend'
-  HEALTH_URL: 'http://localhost:8888/health'
-  KEEP_BACKUPS: '5'
+  SITE_PATH: ${{ vars.SITE_PATH }}
+  BACKUP_ROOT: ${{ vars.BACKUP_ROOT }}
+  APP_POOL: ${{ vars.APP_POOL }}
+  HEALTH_URL: ${{ vars.HEALTH_URL }}
+  KEEP_BACKUPS: ${{ vars.KEEP_BACKUPS }}
 
 defaults:
   run:
