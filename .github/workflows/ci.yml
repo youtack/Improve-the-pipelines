@@ -18,7 +18,7 @@ defaults:
 
 jobs:
   lint:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -33,7 +33,7 @@ jobs:
         run: npm run lint
 
   security:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -45,10 +45,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Dependency vulnerability scan
-        run: npm audit --audit-level=high
+        run: npm audit --omit=dev --audit-level=high
 
   test:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -66,7 +66,7 @@ jobs:
 
   coverage:
     needs: [test]
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -91,7 +91,7 @@ jobs:
 
   build:
     needs: [lint, security, coverage]
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4

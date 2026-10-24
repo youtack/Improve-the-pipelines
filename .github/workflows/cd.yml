@@ -24,7 +24,7 @@ defaults:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -120,7 +120,7 @@ jobs:
 
   release:
     needs: deploy
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - name: Create the tag and GitHub Release
         env:
