@@ -26,3 +26,4 @@ npm run test:coverage
 
 ## IIS
 `web.config` uses **HttpPlatformHandler** to launch `node src/server.js` and forward requests. The backend IIS site is bound to port **8081** (see the setup guide).
+Protection test.
